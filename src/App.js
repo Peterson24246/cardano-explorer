@@ -10,7 +10,7 @@ function App() {
         setBlock(result)
         console.log(block)
       })
-  },[block])
+  },[])
   
   return (
     <div className="App">
