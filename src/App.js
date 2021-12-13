@@ -5,10 +5,10 @@ import { useState, useEffect } from 'react';
 function App() {
   const [block, setBlock] = useState('')
   useEffect(()=>{
-    console.log('test')
-    fetch('https://cardano-explorer-backend.herokuapp.com/api/')
+    fetch('https://cardano-explorer-backend.herokuapp.com/api/blocks/latest')
       .then(response => response.json())
-      .then(data => console.log(data));
+      .then(data => setBlock(data))
+      .then(data => console.log(block));
   },[])
   
   return (
