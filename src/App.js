@@ -1,20 +1,13 @@
 import React from 'react';
 import './App.css';
-import { useState, useEffect } from 'react';
+import { useGetLatestEpochQuery } from './features/api/apiSlice';
 
 function App() {
-  const [block, setBlock] = useState('')
-  useEffect(()=>{
-    fetch('https://cardano-explorer-backend.herokuapp.com/api/blocks/latest')
-      .then(response => response.json())
-      .then(data => setBlock(data))
-      .then(data => console.log(block));
-  },[])
-  
+  const latestEpoch = useGetLatestEpochQuery()
   return (
     <div className="App">
-      <h1>Latest Block</h1>
-      <p></p>
+      <h1>Latest Epoch</h1>
+      <p>{latestEpoch.epoch}</p>
     </div>
   );
 }
